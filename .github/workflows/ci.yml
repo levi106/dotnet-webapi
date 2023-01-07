@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - 'main'
+    tags:
+    - 'v*'
+    paths:
+    - 'src/**'
+  pull_request:
+    branches:
+    - 'main'
+    paths:
+    - 'src/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v2
+      
+    - name: Publish
+      run: dotnet publish --os linux --arch x64 --
+      working-directory: ./src/SimpleApi

@@ -44,9 +44,9 @@ jobs:
     - name: Tag built container
       uses: actions-hub/docker/cli@master
       with:
-        args: tag ${{ IMAGE_NAME }}:1.0.0 ${{ env.REGISTRY }}/${{ IMAGE_NAME }}:${{ TAG }}
+        args: tag ${{ env.IMAGE_NAME }}:1.0.0 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
         
     - name: Push built container
       uses: actions-hub/docker/cli@master
       with:
-        args: push ${{ env.REGISTRY }}/${{ IMAGE_NAME }}:${{ TAG }}
+        args: push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}

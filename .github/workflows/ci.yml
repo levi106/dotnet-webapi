@@ -35,18 +35,20 @@ jobs:
 
     - name: Log into registry ${{ env.REGISTRY }}
       if: github.event_name != 'pull_request'
-      uses: docker/login-action@v1
+      uses: actions-hub/docker/login@master
       with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        DOCKER_REGISTRY_URL: ${{ env.REGISTRY }}
+        DOCKER_USERNAME: ${{ github.actor }}
+        DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Tag built container
+      if: github.event_name != 'pull_request'
       uses: actions-hub/docker/cli@master
       with:
         args: tag ${{ env.IMAGE_NAME }}:1.0.0 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
         
     - name: Push built container
+      if: github.event_name != 'pull_request'
       uses: actions-hub/docker/cli@master
       with:
         args: push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}

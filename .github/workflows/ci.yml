@@ -17,7 +17,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: simpleapi
+  IMAGE_NAME: ${{ github.repository }}
   TAG: latest
 
 jobs:
@@ -45,7 +45,7 @@ jobs:
       if: github.event_name != 'pull_request'
       uses: actions-hub/docker/cli@master
       with:
-        args: tag ${{ env.IMAGE_NAME }}:1.0.0 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
+        args: tag simpleapi:1.0.0 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
         
     - name: Push built container
       if: github.event_name != 'pull_request'

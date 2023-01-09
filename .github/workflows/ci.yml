@@ -17,7 +17,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NMAE: simpleapi
+  IMAGE_NAME: simpleapi
   TAG: latest
 
 jobs:

@@ -8,6 +8,7 @@ builder.WebHost.ConfigureKestrel((context, options) =>
     options.ListenAnyIP(5003, listenOptions =>
     {
         listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http1AndHttp2AndHttp3;
+        // listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http3;
         if (string.IsNullOrEmpty(certPath))
         {
             listenOptions.UseHttps();
@@ -20,6 +21,9 @@ builder.WebHost.ConfigureKestrel((context, options) =>
 });
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World");
+app.MapGet("/", () => {
+    app.Logger.LogInformation("GET");
+    return "Hello World";
+});
 
 app.Run();

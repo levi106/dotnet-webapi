@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dotnet-webapi
+  name: dotnet-webapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnet-webapi
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: dotnet-webapi
+    spec:
+      containers:
+      - image: ghcr.io/levi106/dotnet-webapi:latest
+        name: dotnet-webapi
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5003
+        resources:
+          requests:
+            cpu: 200m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 100Mi

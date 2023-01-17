@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dotnet-webapi
+  name: dotnet-webapi
+spec:
+  template:
+    metadata:
+      labels:
+        app: dotnet-webapi
+    spec:
+      containers:
+      - name: dotnet-webapi
+        env:
+        - name: SIMPLEAPI_CERT_PATH
+          value: 'mycert.pfx'
+        - name: SIMPLEAPI_CERT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: server-cert
+        volumeMounts:
+        - name: cert
+          mountPath: /app/mycert.pfx
+          subPath: mycert.pfx
+      volumes:
+      - name: cert
+        secret:
+          secretName: server-cert

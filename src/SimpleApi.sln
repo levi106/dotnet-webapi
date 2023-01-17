@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApi", "SimpleApi\SimpleApi.csproj", "{176A32E0-9E3B-4442-9B89-B755897BBD1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Http3Client", "Http3Client\Http3Client.csproj", "{1B1BB709-5737-4308-9611-363D6220127D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{176A32E0-9E3B-4442-9B89-B755897BBD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{176A32E0-9E3B-4442-9B89-B755897BBD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{176A32E0-9E3B-4442-9B89-B755897BBD1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B1BB709-5737-4308-9611-363D6220127D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1BB709-5737-4308-9611-363D6220127D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1BB709-5737-4308-9611-363D6220127D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1BB709-5737-4308-9611-363D6220127D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
